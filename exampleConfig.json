@@ -1,0 +1,6 @@
+{
+    "token": "OTM4NTQ0OTk5NjY1MTM1NjI2.Yfr2JQ.r-w8ty9Vmyr-b6mzkdLMFDUflGk",
+    "prefix": "-wl",
+    "ownerID": "",
+    "dburl": "mongodb+srv://worthless:<password>@cluster0.nlzra.mongodb.net/WorldeLeaderboard?retryWrites=true&w=majority"
+}
