@@ -67,7 +67,6 @@ function checkProfile(sender) {
             let user = new User();
             user.username = sender.username;
             user.userId = sender.id;
-            user.messageCount = 0;
             user.save(function (err) {
                 if (err) {
                     console.log(err)
