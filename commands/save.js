@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         let wordleNum = parseInt(message.content.slice(15, 18));
         let scoreNum = message.content.slice(19, 20);
         console.log(scoreNum)
-        if ((scoreNum > 0 && scoreNum < 6) || scoreNum == "X") {
+        if ((scoreNum > 0 && scoreNum <= 6) || scoreNum == "X") {
             console.log("Valid score");
             if (scoreNum == "X") {
                 scoreNum = 7
@@ -54,6 +54,12 @@ module.exports.run = async (bot, message, args) => {
                         let newRunningTotal = currentUser.runningTotal + scoreNum;
                         let newGamesPlayed = currentUser.gamesPlayed + 1;
                         let newScoreAvg = newRunningTotal / newGamesPlayed
+                        console.log(currentUser.gamesPlayed)
+                        console.log(currentUser.runningTotal)
+                        console.log(currentUser.scoreAvg)
+                        console.log(newGamesPlayed)
+                        console.log(newRunningTotal)
+                        console.log(newScoreAvg)
                         currentUser.runningTotal = newRunningTotal;
                         currentUser.gamesPlayed = newGamesPlayed;
                         currentUser.scoreAvg = newScoreAvg
