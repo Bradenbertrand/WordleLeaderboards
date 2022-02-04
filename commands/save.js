@@ -51,9 +51,9 @@ module.exports.run = async (bot, message, args) => {
                     if (error) {
                         console.log("Theres been a error finding the user to update their score average")
                     } else {
-                        let newRunningTotal = currentUser.runningTotal + scoreNum;
+                        let newRunningTotal = currentUser.runningTotal + parseInt(scoreNum);
                         let newGamesPlayed = currentUser.gamesPlayed + 1;
-                        let newScoreAvg = newRunningTotal / newGamesPlayed
+                        let newScoreAvg = (newRunningTotal / newGamesPlayed)
                         console.log(currentUser.gamesPlayed)
                         console.log(currentUser.runningTotal)
                         console.log(currentUser.scoreAvg)
