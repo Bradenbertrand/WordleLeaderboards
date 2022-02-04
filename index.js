@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
+require("dotenv").config();
 const bot = new Discord.Client();
-const config = require('./config.json');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.dburl);
 const User = require('./models/user');
