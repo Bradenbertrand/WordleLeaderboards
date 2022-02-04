@@ -8,6 +8,26 @@ let userSchema = mongoose.Schema({
     userId: {
         type: Number,
         required: true
+    },
+    scoreAvg: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    runningTotal: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    gamesPlayed: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    servers: {
+        type: Array,
+        default: [],
+        required: true
     }
 });
 

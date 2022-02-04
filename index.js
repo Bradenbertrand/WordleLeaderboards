@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require('./config.json');
 const mongoose = require('mongoose');
-mongoose.connect(config.dburl);
+mongoose.connect(process.env.dburl);
 const User = require('./models/user');
 const fs = require('fs');
 const db = mongoose.connection;
@@ -33,16 +33,15 @@ fs.readdir('./commands/', (err, files) => {
 })
 
 bot.on('message', message => {
-    let prefix = config.prefix;
+    let prefix = "!wl"
     let sender = message.author;
+    let server = message.guild.id;
     let cont = message.content.slice(prefix.length).split(" ");
     let args = cont.slice(1);
     let cmd = bot.commands.get(cont[0]);
     if (cmd) cmd.run(bot, message, args);
     if (bot.user.id === message.author.id) { return };
-    if (!message.content.startsWith(prefix)) {
-        checkProfile(sender);
-    }
+    checkProfile(sender, server);
 });
 
 
@@ -58,8 +57,8 @@ bot.on('ready', () => {
 });
 
 
-function checkProfile(sender) {
-    User.findOne({userId: sender.id}, function (err, record) {
+function checkProfile(sender, server) {
+    User.findOne({ userId: sender.id }, function (err, record) {
         if (err) {
             console.log(err.stack);
         }
@@ -74,8 +73,17 @@ function checkProfile(sender) {
                     console.log(sender.username + ' added to the database.');
                 }
             })
-        }   
+        } else if (!record.servers.includes(server)) {
+            record.servers.push(server)
+            record.save(function (error) {
+                if (error) {
+                    console.log(error)
+                } else {
+                    console.log("Successfully added server " + server + " to " + record.username + "'s profile");
+                }
+            });
+        }
     })
 }
 
-bot.login(config.token);
+bot.login(process.env.token);
