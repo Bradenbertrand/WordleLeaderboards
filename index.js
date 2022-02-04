@@ -39,9 +39,10 @@ bot.on('message', message => {
     let cont = message.content.slice(prefix.length).split(" ");
     let args = cont.slice(1);
     let cmd = bot.commands.get(cont[0]);
+    checkProfile(sender, server);
     if (cmd) cmd.run(bot, message, args);
     if (bot.user.id === message.author.id) { return };
-    checkProfile(sender, server);
+    
 });
 
 
