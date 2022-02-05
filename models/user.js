@@ -28,6 +28,11 @@ let userSchema = mongoose.Schema({
         type: Array,
         default: [],
         required: true
+    },
+    points: {
+        type: Number,
+        default: 0,
+        required: true
     }
 });
 

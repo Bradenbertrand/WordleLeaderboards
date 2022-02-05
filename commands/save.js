@@ -51,15 +51,29 @@ module.exports.run = async (bot, message, args) => {
                     if (error) {
                         console.log("Theres been a error finding the user to update their score average")
                     } else {
+                        let pointsScored;
+                        if (parseInt(scoreNum) = 1 ) {
+                            pointsScored = 10
+                        } else if (parseInt(scoreNum) = 2) {
+                            pointsScored = 8
+                        } else if (parseInt(scoreNum) = 3) {
+                            pointsScored = 6
+                        } else if (parseInt(scoreNum) = 4) {
+                            pointsScored = 4
+                        } else if (parseInt(scoreNum) = 5) {
+                            pointsScored = 2
+                        } else if (parseInt(scoreNum) = 6) {
+                            pointsScored = 0
+                        } else if (scoreNum == "X") {
+                            pointsScored = -2
+                        } else {
+                            message.channel.send("There has been an error calculated your points added. Your score has still been saved.")
+                        }
+                        let newPoints = currentUser.points + pointsScored;
                         let newRunningTotal = currentUser.runningTotal + parseInt(scoreNum);
                         let newGamesPlayed = currentUser.gamesPlayed + 1;
                         let newScoreAvg = (newRunningTotal / newGamesPlayed)
-                        console.log(currentUser.gamesPlayed)
-                        console.log(currentUser.runningTotal)
-                        console.log(currentUser.scoreAvg)
-                        console.log(newGamesPlayed)
-                        console.log(newRunningTotal)
-                        console.log(newScoreAvg)
+                        currentUser.points = newPoints;
                         currentUser.runningTotal = newRunningTotal;
                         currentUser.gamesPlayed = newGamesPlayed;
                         currentUser.scoreAvg = newScoreAvg
