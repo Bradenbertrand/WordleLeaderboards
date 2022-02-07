@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     var i = 1
     var returnedScores = `Top averages for all servers:\n`;
     usersSorted.forEach((user) => {
-        returnedScores += `#${i} - ${user.username} with an avg score of ${user.scoreAvg}\n`
+        returnedScores += `#${i} - ${user.username} with an avg score of ${user.scoreAvg.toFixed(2)}\n`
         i += 1
     })
     message.channel.send(returnedScores);
