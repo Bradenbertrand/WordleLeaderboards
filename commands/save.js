@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
         let scoreid = message.author.id + message.content.slice(15, 18)
         let wordleNum = parseInt(message.content.slice(15, 18));
         let scoreNum = message.content.slice(19, 20);
+        let win = true;
         console.log(scoreNum)
         //Verifies the score is a valid score
         if ((scoreNum > 0 && scoreNum <= 6) || scoreNum == "X") {
@@ -17,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
             //If the user failed, give a score of 7
             if (scoreNum == "X") {
                 scoreNum = 7
+                win = false;
                 message.channel.send("Failed! You've been given a score of 7 for this attempt.")
             }
         } else {
@@ -58,12 +60,20 @@ module.exports.run = async (bot, message, args) => {
                     if (error) {
                         console.log("Theres been a error finding the user to update their score average")
                     } else {
+                        //Score average, running total, and gamesplayed calculations
                         let newRunningTotal = currentUser.runningTotal + parseInt(scoreNum);
                         let newGamesPlayed = currentUser.gamesPlayed + 1;
                         let newScoreAvg = (newRunningTotal / newGamesPlayed)
                         currentUser.runningTotal = newRunningTotal;
                         currentUser.gamesPlayed = newGamesPlayed;
                         currentUser.scoreAvg = newScoreAvg
+                        //Wins and losses calculations
+                        if (win) {
+                            currentUser.wins = currentUser.wins + 1
+                        } else {
+                            currentUser.losses = currentUser.losses
+                        }
+                        currentUser.winRate = (currentUser.wins/currentUser.gamesPlayed) * 100
                         currentUser.save(function(err) {
                             if (err) {
                                 console.log("Error saving new user information")

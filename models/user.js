@@ -33,6 +33,16 @@ let userSchema = mongoose.Schema({
         type: Number,
         default: 0,
         required: true
+    },
+    losses: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    winRate: {
+        type: Number,
+        default: 0,
+        required: true
     }
 });
 
