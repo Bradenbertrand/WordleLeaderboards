@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("User " +
             message.author.username + " has won " + 
             currentUser.wins + " games and lost " +
-            currentUser.losses + ", with a win rate of " + currentUser.winRate + "%.");
+            currentUser.losses + ", with a win rate of " + currentUser.winRate.toFixed(2) + "%.");
         }
     })
 }
