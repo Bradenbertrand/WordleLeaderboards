@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 module.exports.run = async (bot, message, args) => {
     //Creates an array based on all users in the current server, with a score higher than 0.1, with a limit of 5 users.
-    const usersSorted = await User.find({ scoreAvg: { $gte: 0.1}}).sort({scoreAvg: 1}).limit(5);
+    const usersSorted = await User.find({ scoreAvg: { $gte: 0.1}, gamesPlayed: { $gte: 2}}).sort({scoreAvg: 1}).limit(5);
     try {
     var i = 1
     var returnedScores = `Top averages for all servers:\n`;
