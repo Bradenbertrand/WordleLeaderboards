@@ -28,19 +28,19 @@ module.exports.run = async (bot, message, args) => {
             return;
         }
         //Calculate points scored
-        if (scoreNum = 1) {
+        if (scoreNum == 1) {
             points = 8
-        } else if (scoreNum = 2) {
+        } else if (scoreNum == 2) {
             points = 6
-        } else if (scoreNum = 3) {
+        } else if (scoreNum == 3) {
             points = 4
-        } else if (scoreNum = 4) {
+        } else if (scoreNum == 4) {
             points = 2
-        } else if (scoreNum = 5) {
+        } else if (scoreNum == 5) {
             points = 0
-        } else if (scoreNum = 6) {
+        } else if (scoreNum == 6) {
             points = -2
-        } else if (scoreNum = "X") {
+        } else if (scoreNum == "X") {
             points = -4
         }
         //Saves score information
