@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
         let wordleNum = parseInt(message.content.slice(15, 18));
         let scoreNum = message.content.slice(19, 20);
         let win = true;
+        let points;
         console.log(scoreNum)
         //Verifies the score is a valid score
         if ((scoreNum > 0 && scoreNum <= 6) || scoreNum == "X") {
@@ -25,6 +26,22 @@ module.exports.run = async (bot, message, args) => {
             //Error message when score is not valid
             message.channel.send("Don't be making up fake scores you goon");
             return;
+        }
+        //Calculate points scored
+        if (scoreNum = 1) {
+            points = 8
+        } else if (scoreNum = 2) {
+            points = 6
+        } else if (scoreNum = 3) {
+            points = 4
+        } else if (scoreNum = 4) {
+            points = 2
+        } else if (scoreNum = 5) {
+            points = 0
+        } else if (scoreNum = 6) {
+            points = -2
+        } else if (scoreNum = "X") {
+            points = -4
         }
         //Saves score information
         let scorePat = message.content.slice(22);
@@ -74,6 +91,13 @@ module.exports.run = async (bot, message, args) => {
                             currentUser.losses = currentUser.losses
                         }
                         currentUser.winRate = (currentUser.wins/currentUser.gamesPlayed) * 100
+                        //Add points to user account
+                        currentUser.points = currentUser.points + points;
+                        if (points >= 0) {
+                            message.channel.send("You've earned " + points + " points!")
+                        } else if (points < 0) {
+                            message.channel.send("You've lost "  + Math.abs(points) + " points :(")
+                        }
                         currentUser.save(function(err) {
                             if (err) {
                                 console.log("Error saving new user information")

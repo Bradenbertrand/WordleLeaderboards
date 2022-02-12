@@ -43,6 +43,11 @@ let userSchema = mongoose.Schema({
         type: Number,
         default: 0,
         required: true
+    },
+    points: {
+        type: Number,
+        default: 0,
+        required: true
     }
 });
 
