@@ -2,8 +2,8 @@ const User = require('../models/user');
 
 module.exports.run = async (bot, message, args) => {
     if (args == "") {
-        //Creates an array based on users in the current server, with a score higher than 0.1, with a limit of 5 users.
-        const usersSorted = await User.find({ servers: message.guild.id}).sort({ points: 1 }).limit(5);
+        //Creates an array based on users in the current server, sorted by points descending with a limit of 5 users.
+        const usersSorted = await User.find({ servers: message.guild.id}).sort({ points: -1 }).limit(5);
         try {
             var i = 1
             var returnedScores = `Top users for this server:\n`;
@@ -20,8 +20,8 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("There has been an error! This is probably due to less than 5 people having scores on your server.")
         }
     } else if (args == "all") {
-        //Creates an array based on users in the current server, with a score higher than 0.1, with a limit of 5 users.
-        const usersSorted = await User.find({}).sort({ points: 1 }).limit(5);
+        //Creates an array based on users in all servers, sorted by points descending with a limit of 5 users.
+        const usersSorted = await User.find({}).sort({ points: -1 }).limit(5);
         try {
             var i = 1
             var returnedScores = `Top users for this server:\n`;
