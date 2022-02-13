@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         const usersSorted = await User.find({}).sort({ points: -1 }).limit(5);
         try {
             var i = 1
-            var returnedScores = `Top users for this server:\n`;
+            var returnedScores = `Top users for all servers:\n`;
             //Create a line of text for each user
             usersSorted.forEach((user) => {
                 returnedScores += `#${i} - ${user.username} with ${user.points} points\n`
