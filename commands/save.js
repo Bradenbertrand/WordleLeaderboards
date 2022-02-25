@@ -29,19 +29,19 @@ module.exports.run = async (bot, message, args) => {
         }
         //Calculate points scored
         if (scoreNum == 1) {
-            points = 8
+            points = 10
         } else if (scoreNum == 2) {
-            points = 6
+            points = 8
         } else if (scoreNum == 3) {
-            points = 4
+            points = 6
         } else if (scoreNum == 4) {
-            points = 2
+            points = 4
         } else if (scoreNum == 5) {
-            points = 0
+            points = 2
         } else if (scoreNum == 6) {
-            points = -2
+            points = 0
         } else if (scoreNum == "X") {
-            points = -4
+            points = -2
         }
         //Saves score information
         let scorePat = message.content.slice(22);
