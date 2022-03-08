@@ -1,3 +1,6 @@
+//DUE TO THE NYTIMES BUYOUT THIS API NO LONGER WORKS
+//NON FUNCTION ATM
+
 const axios = require('axios')
 
 module.exports.run = async (bot, message, args) => {
@@ -12,5 +15,5 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    command: "solution"
+    command: "solutionbroken"
 };
