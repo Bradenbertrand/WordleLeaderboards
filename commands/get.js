@@ -11,7 +11,12 @@ module.exports.run = async (bot, message, args) => {
         return score.wordleNumber == scoreid
     })
 
-    console.log(sortedArray)
+    if (sortedArray.length == 0) {
+        message.channel.send("No score found. Please try again with a valid 3 digit game")
+    } else {
+        message.channel.send(`Wordle ${scorid} ${sortedArray[0].score}/6
+        ${sortedArray[0].scorePattern}`)
+    }
 }
 
 module.exports.config = {
