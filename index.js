@@ -69,6 +69,7 @@ bot.on('ready', () => {
 });
 
 
+
 function checkProfile(sender, server) {
     //Creates a new user profile if one does not exist. If it does, adds the server to the users server list if it does not already exist.
     User.findOne({ userId: sender.id }, function (err, record) {
