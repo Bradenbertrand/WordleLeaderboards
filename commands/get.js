@@ -6,9 +6,9 @@ module.exports.run = async (bot, message, args) => {
     console.log(scores.length);
 
     let sortedArray = scores.filter(function (score) {
-        return score.userId.slice(0,10) = userid
+        return score.userId.slice(0,10) == userid
     }).filter(function (score) {
-        return score.wordleNumber = scoreid
+        return score.wordleNumber == scoreid
     })
 
     console.log(sortedArray)
