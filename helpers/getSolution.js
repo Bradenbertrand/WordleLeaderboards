@@ -5,7 +5,7 @@ const getSolution = async (number) => {
     console.log("number fed to getSolution: " + number[0])
     let x = 0;
     var filename = 'Solutions.txt';
-    const solution = await readline.createInterface({
+    return await readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
     }).on('line', function(line) {
@@ -19,8 +19,6 @@ const getSolution = async (number) => {
         }
         
     })
-    console.log("solution before sending to get.js: " + solution)
-    return solution;
 }
 
 module.exports = {
