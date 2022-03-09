@@ -9,7 +9,7 @@ const getSolution = (number) => {
         terminal: false
     }).on('line', function(line) {
         var lineDeconstruct = line.split(" ")
-        console.log("wordle number: " + parseInt(lineDeconstruct[4]) - 2)
+        console.log("wordle number: " + lineDeconstruct[4])
         console.log("solution: " + lineDeconstruct[5])
         if (parseInt(lineDeconstruct[4]) - 2 == parseInt(number)) {
             solution = lineDeconstruct[5]
