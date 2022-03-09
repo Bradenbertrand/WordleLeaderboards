@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     let solution = getSolution.getSolution(args)
     console.log(solution)
     if (sortedArray.length == 0) {
-        message.channel.send("No score found. Please try again with a valid 3 digit game")
+        message.channel.send("No score found. Could be that you didn't play this day, or the number you entered was invalid.")
     } else {
         message.channel.send(`Wordle ${scoreid} ${sortedArray[0].score}/6 ${sortedArray[0].scorePattern}
         solution: ||${solution}||`)
