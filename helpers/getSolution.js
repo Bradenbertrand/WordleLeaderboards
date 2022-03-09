@@ -2,7 +2,7 @@ var fs = require('fs');
 var readline = require('readline');
 
 const getSolution = async (number) => {
-    console.log(number)
+    console.log("number fed to getSolution: " + number[0])
     let solution = "";
     let x = 0;
     var filename = 'Solutions.txt';
@@ -19,6 +19,7 @@ const getSolution = async (number) => {
         }
         
     })
+    console.log("returned solution: " + solution)
     return solution
 }
 

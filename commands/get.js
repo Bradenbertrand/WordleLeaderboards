@@ -13,10 +13,14 @@ module.exports.run = async (bot, message, args) => {
     })
 
     await getSolution.getSolution(args).then( solution => {
-        console.log(solution)
+        console.log("solution in get.js: " + solution)
         if (sortedArray.length == 0) {
             message.channel.send("No score found. Could be that you didn't play this day, or the number you entered was invalid.")
         } else {
+            if (solution == "") {
+                console.log("Solution not found")
+                solution = "solution not found"
+            }
             message.channel.send(`Wordle ${scoreid} ${sortedArray[0].score}/6 ${sortedArray[0].scorePattern}
             solution: ||${solution}||`)
         }
