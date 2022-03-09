@@ -1,4 +1,6 @@
 const Score = require('../models/score');
+const getSolution = require('../helpers/getSolution');
+
 module.exports.run = async (bot, message, args) => {
     let userid = message.author.id.slice(0, 10);
     let scoreid = args;
@@ -10,10 +12,13 @@ module.exports.run = async (bot, message, args) => {
         return score.wordleNumber == scoreid
     })
 
-    if (sortedArray.length == 0) {
+    let solution = getSolution(args)
+
+    if (sortedArray.length == 0 || solution == "") {
         message.channel.send("No score found. Please try again with a valid 3 digit game")
     } else {
-        message.channel.send(`Wordle ${scoreid} ${sortedArray[0].score}/6 \n${sortedArray[0].scorePattern}`)
+        message.channel.send(`Wordle ${scoreid} ${sortedArray[0].score}/6 ${sortedArray[0].scorePattern}
+        solution: ||${solution}||`)
     }
 }
 
