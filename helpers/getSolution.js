@@ -6,7 +6,7 @@ const getSolution = async (number) => {
     let solution = "";
     let x = 0;
     var filename = 'Solutions.txt';
-    readline.createInterface({
+    await readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
     }).on('line', function(line) {
