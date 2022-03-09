@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         return score.wordleNumber == scoreid
     })
 
-    let solution = getSolution.getSolution(args)
+    let solution = await getSolution.getSolution(args)
     console.log(solution)
     if (sortedArray.length == 0) {
         message.channel.send("No score found. Could be that you didn't play this day, or the number you entered was invalid.")
