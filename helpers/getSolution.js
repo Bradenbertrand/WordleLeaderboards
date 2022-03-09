@@ -14,8 +14,8 @@ const getSolution = async (number) => {
             var lineDeconstruct = line.split(" ")
             console.log("wordle number: " + lineDeconstruct[4])
             console.log("solution: " + lineDeconstruct[5])
-            solution = lineDeconstruct[5]
-            return solution
+            const resolvedSolution = lineDeconstruct[5]
+            return resolvedSolution
         }
         
     })
