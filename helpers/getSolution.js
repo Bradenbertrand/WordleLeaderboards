@@ -6,7 +6,7 @@ const getSolution = async (number) => {
     let solution = "";
     let x = 0;
     var filename = 'Solutions.txt';
-    await readline.createInterface({
+    return await readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
     }).on('line', function(line) {
@@ -16,11 +16,10 @@ const getSolution = async (number) => {
             console.log("wordle number: " + lineDeconstruct[4])
             console.log("solution: " + lineDeconstruct[5])
             solution = lineDeconstruct[5]
+            return solution
         }
         
     })
-    console.log("returned solution: " + solution)
-    return solution
 }
 
 module.exports = {
