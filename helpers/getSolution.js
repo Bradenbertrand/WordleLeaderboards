@@ -1,7 +1,7 @@
 var fs = require('fs');
 var readline = require('readline');
 
-const getSolution = (number) => {
+const getSolution = async (number) => {
     console.log(number)
     let solution = "";
     let x = 0;
