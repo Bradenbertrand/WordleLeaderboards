@@ -16,4 +16,6 @@ const getSolution = (number) => {
     return solution
 }
 
-exports.getSolution = getSolution;
+module.exports = {
+    getSolution: getSolution
+}
