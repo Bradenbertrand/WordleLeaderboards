@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
                 solution = "solution not found"
             }
             message.channel.send(`Wordle ${scoreid} ${sortedArray[0].score}/6 ${sortedArray[0].scorePattern}
-            solution: ||${solution}||`)
+            \nsolution: ||${solution}||`)
         }
     })
 
