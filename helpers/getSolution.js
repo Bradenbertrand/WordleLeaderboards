@@ -3,7 +3,7 @@ var readline = require('readline');
 
 const getSolution = (number) => {
     let solution = "";
-    let line = 0;
+    let x = 0;
     var filename = 'Solutions.txt';
     readline.createInterface({
         input: fs.createReadStream(filename),
