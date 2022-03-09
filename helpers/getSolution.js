@@ -11,7 +11,7 @@ const getSolution = (number) => {
         terminal: false
     }).on('line', function(line) {
         x += 1;
-        if (x == (parseInt(number) + 3)) { 
+        if (x == (parseInt(number[0]) + 3)) { 
             var lineDeconstruct = line.split(" ")
             console.log("wordle number: " + lineDeconstruct[4])
             console.log("solution: " + lineDeconstruct[5])
