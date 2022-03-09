@@ -1,7 +1,7 @@
 var fs = require('fs');
 var readline = require('readline');
 
-function getSolution(number) {
+const getSolution = (number) => {
     let solution = "";
     var filename = '../Solutions.txt';
     readline.createInterface({
@@ -16,4 +16,4 @@ function getSolution(number) {
     return solution
 }
 
-module.exports = { getSolution }
+exports.getSolution = getSolution;
