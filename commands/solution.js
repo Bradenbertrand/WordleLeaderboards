@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
             console.log("wordle number: " + lineDeconstruct[4])
             console.log("solution: " + lineDeconstruct[5])
             resolvedSolution = lineDeconstruct[5]
-            if (!resolvedResolution) {
+            if (!resolvedSolution) {
                 console.log("Solution not found")
                 message.channel.send("Solution not found")
             } else {
