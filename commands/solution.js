@@ -10,9 +10,7 @@ module.exports.run = async (bot, message, args) => {
     var rl = readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
-    })
-    console.log("interface created")
-    rl.on('line', function(line) {
+    }).on('line', function(line) {
         x += 1;
         if (x == parseInt(args[0] + 3)) {
             console.log("line found")
