@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     var resolvedSolution = "";
 
     var rl = readline.createInterface({
-        input: fs.createReadStream(file),
+        input: fs.createReadStream(filename),
         terminal: false
     })
 
