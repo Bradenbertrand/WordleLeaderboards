@@ -7,6 +7,8 @@ module.exports.run = async (bot, message, args) => {
     let x = 0;
     var resolvedSolution = "";
     console.log('getsolution run')
+    console.log("args: " + args)
+    console.log("args at index 0:" + args[0])
     var rl = readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
