@@ -15,7 +15,6 @@ module.exports.run = async (bot, message, args) => {
 
 
     await getSolution.getSolution(args).then( solution => {
-        console.log(solution)
         console.log("solution in get.js: " + solution)
         if (sortedArray.length == 0) {
             message.channel.send("No score found. Could be that you didn't play this day, or the number you entered was invalid.")
