@@ -1,4 +1,5 @@
 module.exports.run = async(bot, message, args) => {
+    console.log("Help has been run")
     message.channel.send(`Commands:
     !wlhelp - this command
     !wlsave <Pasted Wordle Score> - add your Wordle score 

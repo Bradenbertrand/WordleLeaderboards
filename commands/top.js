@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 module.exports.run = async (bot, message, args) => {
+    console.log("Top has been run")
     if (args == "") {
         //Creates an array based on users in the current server, sorted by points descending with a limit of 5 users.
         const usersSorted = await User.find({ servers: message.guild.id}).sort({ points: -1 }).limit(5);

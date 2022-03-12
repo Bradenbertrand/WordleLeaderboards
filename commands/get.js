@@ -3,6 +3,7 @@ var fs = require('fs');
 var readline = require('readline');
 
 module.exports.run = async (bot, message, args) => {
+    console.log("Get has been run")
     let userid = message.author.id.slice(0, 10);
     let scoreid = args;
     let scores = await Score.find({});

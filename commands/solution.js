@@ -2,14 +2,11 @@ var fs = require('fs');
 var readline = require('readline');
 
 module.exports.run = async (bot, message, args) => {
+    console.log("Solution has been run")
     let scoreid = args
     let filename = "Solutions.txt"
     let x = 0;
     var resolvedSolution = "";
-    console.log('getsolution run')
-    console.log("args: " + args)
-    console.log("args at index 0:" + args[0])
-    
     
     readline.createInterface({
         input: fs.createReadStream(filename),
