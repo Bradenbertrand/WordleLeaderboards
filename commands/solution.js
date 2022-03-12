@@ -6,15 +6,16 @@ module.exports.run = async (bot, message, args) => {
     let filename = "Solutions.txt"
     let x = 0;
     var resolvedSolution = "";
-
+    console.log('getsolution run')
     var rl = readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
     })
-
+    console.log("interface created")
     rl.on('line', function(line) {
         x += 1;
         if (x == parseInt(args[0] + 3)) {
+            console.log("line found")
             var lineDeconstruct = line.split(" ")
             console.log("wordle number: " + lineDeconstruct[4])
             console.log("solution: " + lineDeconstruct[5])
@@ -30,5 +31,5 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    command: "getsolution"
+    command: "solution"
 };
