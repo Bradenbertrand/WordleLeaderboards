@@ -12,9 +12,12 @@ module.exports.run = async (bot, message, args) => {
         return score.wordleNumber == scoreid
     })
 
-
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+      }
 
     await getSolution.getSolution(args).then( solution => {
+        await delay(1500)
         console.log("solution in get.js: " + solution)
         if (sortedArray.length == 0) {
             message.channel.send("No score found. Could be that you didn't play this day, or the number you entered was invalid.")
