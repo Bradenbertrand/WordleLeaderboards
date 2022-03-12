@@ -1,4 +1,5 @@
 module.exports.run = async(bot, message, args) => {
+    console.log("Help has been run")
     message.channel.send(`Commands:
     !wlhelp - this command
     !wlsave <Pasted Wordle Score> - add your Wordle score 
@@ -8,7 +9,9 @@ module.exports.run = async(bot, message, args) => {
     !wltop avg-all - See the top 5 player averages on all servers
     !wlavg - See your average score
     !wlpoints - See your current points
-    !wlwins - See your wins, losses, and win rate`)
+    !wlwins - See your wins, losses, and win rate
+    !wlget <worlde number> - See your score, and the solution for that day.
+    !wlsolution <wordle number> - Get the solution for that day`)
 }
 
 module.exports.config = {

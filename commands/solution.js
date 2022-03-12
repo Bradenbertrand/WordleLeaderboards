@@ -1,19 +1,34 @@
-//DUE TO THE NYTIMES BUYOUT THIS API NO LONGER WORKS
-//NON FUNCTION ATM
-
-const axios = require('axios')
+var fs = require('fs');
+var readline = require('readline');
 
 module.exports.run = async (bot, message, args) => {
-    const date = new Date();
-    const todaysDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`
-    if (args == "") {
-        axios.get(`https://wordle-solutions.herokuapp.com/`).then(function (solution) {
-            console.log(solution.todaysDate)
-            message.channel.send(solution.todaysDate);
-        })
-    }
+    console.log("Solution has been run")
+    let scoreid = args
+    let filename = "Solutions.txt"
+    let x = 0;
+    var resolvedSolution = "";
+    
+    readline.createInterface({
+        input: fs.createReadStream(filename),
+        terminal: false
+    }).on('line', function(line) {
+        x += 1;
+        if (x == (parseInt(args[0]) + 3)) {
+            console.log("line found")
+            var lineDeconstruct = line.split(" ")
+            console.log("wordle number: " + lineDeconstruct[4])
+            console.log("solution: " + lineDeconstruct[5])
+            resolvedSolution = lineDeconstruct[5]
+            if (!resolvedSolution) {
+                console.log("Solution not found")
+                message.channel.send("Solution not found")
+            } else {
+                message.channel.send(`Wordle ${scoreid} solution: ||${resolvedSolution}||`)
+            }
+        }
+    })
 }
 
 module.exports.config = {
-    command: "solutionbroken"
+    command: "solution"
 };

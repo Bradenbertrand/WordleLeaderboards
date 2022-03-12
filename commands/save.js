@@ -3,6 +3,7 @@ const Score = require('../models/score');
 const User = require('../models/user');
 
 module.exports.run = async (bot, message, args) => {
+    console.log("Save has been run");
     //Regex to verify message format
     let regex = /Wordle \d\d\d .\/6/i;
     //If its a valid...

@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 module.exports.run = async (bot, message, args) => {
+    console.log("Points has been run")
     let userid = message.author.id
     //Finds a user based on userId
     User.findOne({ userId: userid}, function (err, currentUser) {
