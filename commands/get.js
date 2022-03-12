@@ -1,5 +1,4 @@
 const Score = require('../models/score');
-const getSolution = require('../helpers/getSolution');
 var fs = require('fs');
 var readline = require('readline');
 

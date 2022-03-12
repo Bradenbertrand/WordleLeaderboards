@@ -1,3 +1,6 @@
+var fs = require('fs');
+var readline = require('readline');
+
 module.exports.run = async (bot, message, args) => {
     let scoreid = args
     let filename = "Solutions.txt"
