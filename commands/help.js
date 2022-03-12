@@ -12,7 +12,7 @@ module.exports.run = async(bot, message, args) => {
     !wlpoints - See your current points
     !wlwins - See your wins, losses, and win rate
     !wlget <worlde number> - See your score, and the solution for that day.
-    !wlgetsolution <wordle number> - Get the solution for that day`)
+    !wlsolution <wordle number> - Get the solution for that day`)
 }
 
 module.exports.config = {
