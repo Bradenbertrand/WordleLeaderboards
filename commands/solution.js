@@ -9,12 +9,14 @@ module.exports.run = async (bot, message, args) => {
     console.log('getsolution run')
     console.log("args: " + args)
     console.log("args at index 0:" + args[0])
+    
+    
     readline.createInterface({
         input: fs.createReadStream(filename),
         terminal: false
     }).on('line', function(line) {
         x += 1;
-        if (x == parseInt(args[0] + 3)) {
+        if (x == (parseInt(args[0]) + 3)) {
             console.log("line found")
             var lineDeconstruct = line.split(" ")
             console.log("wordle number: " + lineDeconstruct[4])
