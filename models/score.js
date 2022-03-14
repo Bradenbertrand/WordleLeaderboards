@@ -29,6 +29,7 @@ let scoreSchema = mongoose.Schema({
         required: true
     }, 
     date: {
+        type: Date,
         default: new Date()
     }
 });
