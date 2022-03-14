@@ -27,10 +27,8 @@ let scoreSchema = mongoose.Schema({
     serverId: {
         type: String,
         required: true
-    }, date: {
-        default: new Date(),
-        required: true
-    }
+    }, 
+    date: new Date()
 });
 
 let Score = module.exports = mongoose.model('Score', scoreSchema);
