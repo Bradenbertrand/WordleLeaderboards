@@ -77,8 +77,26 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`}})
+        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`}}).sort({ score: 'asc' }).limit(5);
+        let users = await User.find({})
+        try {
+            var i = 1;
+            var returnedScores = `Top averages for all servers:\n`
+            //Creates a line of text for each user
+            todaysScores.forEach((score) => {
+                let user = users.find(user => {
+                    score.userId.slice(0, 10) == user.userId.slice(0, 10);
+                })
+                returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
+                i += 1
+            })
+            message.channel.send(returnedScores);
+        } catch (error) {
+            console.log(error)
+            message.channel.send("There has been an error! This is probably due to less than 5 people having scores on your server.")
+        }
         console.log(todaysScores)
+
     } else {
         message.channel.send("Invalid arguments. use !wlhelp to see commands.")
     }
