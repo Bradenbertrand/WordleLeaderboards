@@ -76,7 +76,6 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("There has been an error! This is probably due to less than 5 people having scores on your server.")
         }
     } else if (args == "daily") {
-        const scoresSorted = await Score.find({});
     } else {
         message.channel.send("Invalid arguments. use !wlhelp to see commands.")
     }
