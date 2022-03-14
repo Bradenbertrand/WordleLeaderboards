@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 
+var todayDate = new Date();
+
 let scoreSchema = mongoose.Schema({
     username: {
         type: String,
@@ -27,6 +29,10 @@ let scoreSchema = mongoose.Schema({
     serverId: {
         type: String,
         required: true
+    }, 
+    date: {
+        type: Date,
+        default: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`
     }
 });
 
