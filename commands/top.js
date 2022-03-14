@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`, $lte: '1987-10-26' }})
+        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`}})
         console.log(todaysScores)
     } else {
         message.channel.send("Invalid arguments. use !wlhelp to see commands.")
