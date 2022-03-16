@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     console.log("Top has been run")
     if (args == "") {
         //Creates an array based on users in the current server, sorted by points descending with a limit of 5 users.
-        const usersSorted = await User.find({ servers: message.guild.id}).sort({ points: -1 }).limit(5);
+        const usersSorted = await User.find({ servers: message.guild.id }).sort({ points: -1 }).limit(5);
         try {
             var i = 1
             var returnedScores = `Top users for this server:\n`;
@@ -77,18 +77,23 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`}}).sort({ score: 'asc' }).limit(5);
+        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' }).limit();
         let users = await User.find({ servers: message.guild.id })
         try {
             var i = 1;
             var returnedScores = `Top scores for today`;
             //Creates a line of text for each user
             todaysScores.forEach((score) => {
-                let user = users.find(user => {
-                    return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
-                })
-                returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
-                i += 1
+                if (i > 5) {
+
+                } else {
+                    let user = users.find(user => {
+                        return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
+                    })
+                    returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
+                    i += 1
+                }
+
             })
             message.channel.send(returnedScores);
         } catch (error) {
@@ -99,7 +104,7 @@ module.exports.run = async (bot, message, args) => {
 
     } else if (args == "daily-all") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`}}).sort({ score: 'asc' }).limit(5);
+        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' }).limit(5);
         let users = await User.find({})
         try {
             var i = 1;
@@ -119,7 +124,7 @@ module.exports.run = async (bot, message, args) => {
         }
         console.log(todaysScores)
 
-    }else {
+    } else {
         message.channel.send("Invalid arguments. use !wlhelp to see commands.")
     }
 }
