@@ -32,7 +32,7 @@ let scoreSchema = mongoose.Schema({
     }, 
     date: {
         type: Date,
-        default: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}`
+        default: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate() + 1}`
     }
 });
 
