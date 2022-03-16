@@ -84,12 +84,11 @@ module.exports.run = async (bot, message, args) => {
             var returnedScores = `Top scores for today\n`;
             //Creates a line of text for each user
             todaysScores.forEach((score) => {
-                    let user = users.find(user => {
-                        return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
-                    })
-                    returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
-                    i += 1
-
+                let user = users.find(user => {
+                    return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
+                })
+                returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
+                i += 1
             })
             message.channel.send(returnedScores);
         } catch (error) {
