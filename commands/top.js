@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' }).limit();
+        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' })
         let users = await User.find({ servers: message.guild.id })
         try {
             var i = 1;
@@ -108,7 +108,7 @@ module.exports.run = async (bot, message, args) => {
         let users = await User.find({})
         try {
             var i = 1;
-            var returnedScores = `Top scores for today`;
+            var returnedScores = `Top scores for today\n`;
             //Creates a line of text for each user
             todaysScores.forEach((score) => {
                 let user = users.find(user => {
