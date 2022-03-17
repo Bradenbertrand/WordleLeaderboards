@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     } else if (args == "daily") {
         var todayDate = new Date();
         let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' })
-        let scoreArray;
+        let scoreArray = [];
         let dailyAverage;
         try {
             const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
