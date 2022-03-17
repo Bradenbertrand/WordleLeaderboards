@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
             todaysScores.forEach((score) => {
                 scoreArray.push(score.score)
             })
-            dailyAverage = average(scoreArray);
+            dailyAverage = average(scoreArray).toFixed(2);
             message.channel.send(`Todays average: ${dailyAverage}`)
         } catch (error) {
             console.log(error)

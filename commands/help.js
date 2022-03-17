@@ -10,6 +10,7 @@ module.exports.run = async(bot, message, args) => {
     !wltop daily - See the top scores for today's wordle
     !wltop daily-all - See the top scores for today's wordle across all servers
     !wlavg - See your average score
+    !wlavg daily - See the average score for todays wordle.
     !wlpoints - See your current points
     !wlwins - See your wins, losses, and win rate
     !wlget <worlde number> - See your score, and the solution for that day.
