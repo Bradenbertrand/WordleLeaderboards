@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "avg-all") {
         //Creates an array based on all users in the current server, with a score higher than 0.1, with a limit of 5 users.
-        const usersSorted = await User.find({ scoreAvg: { $gte: 0.1 }, gamesPlayed: { $gte: 2 } }).sort({ scoreAvg: 1 }).limit(5);
+        const usersSorted = await User.find({ scoreAvg: { $gte: 0.1 }, gamesPlayed: { $gte: 2 } }).sort({ scoreAvg: 1 });
         try {
             var i = 1
             var returnedScores = `Top averages for all servers:\n`;
@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` }).sort({ score: 'asc' }).limit(5);
+        let todaysScores = await Score.find({ date: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` }).sort({ score: 'asc' });
         let users = await User.find({ servers: message.guild.id })
         try {
             var i = 1;
@@ -88,10 +88,12 @@ module.exports.run = async (bot, message, args) => {
                     return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
                 })
                 if (!user) {
+                        
+                } else if (i > 5) {
 
                 } else {
                     returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
-                    i += 1
+                    i += 1  
                 }
 
             })
