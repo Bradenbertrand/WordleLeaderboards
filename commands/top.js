@@ -116,8 +116,12 @@ module.exports.run = async (bot, message, args) => {
                 let user = users.find(user => {
                     return score.userId.slice(0, 10) == user.userId.toString().slice(0, 10);
                 })
-                returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
-                i += 1
+                if (i > 5) {
+                    
+                } else {
+                    returnedScores += `#${i} - ${user.username} with a score of ${score.score}\n`;
+                    i += 1
+                }
             })
             message.channel.send(returnedScores);
         } catch (error) {
