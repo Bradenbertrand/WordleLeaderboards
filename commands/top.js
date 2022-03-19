@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
         }
     } else if (args == "daily") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' }).limit(5);
+        let todaysScores = await Score.find({ date: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` }).sort({ score: 'asc' }).limit(5);
         let users = await User.find({ servers: message.guild.id })
         try {
             var i = 1;
@@ -104,7 +104,7 @@ module.exports.run = async (bot, message, args) => {
 
     } else if (args == "daily-all") {
         var todayDate = new Date();
-        let todaysScores = await Score.find({ date: { $gte: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` } }).sort({ score: 'asc' }).limit(5);
+        let todaysScores = await Score.find({ date: `${todayDate.getFullYear()}-${todayDate.getMonth()}-${todayDate.getDate()}` }).sort({ score: 'asc' }).limit(5);
         let users = await User.find({})
         try {
             var i = 1;

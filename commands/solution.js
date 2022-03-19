@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         terminal: false
     }).on('line', function(line) {
         x += 1;
-        if (x == (parseInt(args[0]) + 3)) {
+        if (x == (parseInt(args[0]) + 4)) {
             console.log("line found")
             var lineDeconstruct = line.split(" ")
             console.log("wordle number: " + lineDeconstruct[4])
